@@ -43,21 +43,36 @@ export const global = StyleSheet.create({
         marginBottom: height * 0.01
     },
 
+     input: {
+        flex: 1,
+        fontSize: 17,
+        color: "#000",
+        paddingHorizontal: width * 0.02
+    },
+
     inputGroup:{
         marginBottom: height *0.01
     },
 
     inputIcon: {
-        backgroundColor: "yellow",
+        backgroundColor: "#fff",
         borderBottomWidth: 1,
-        borderColor: "#420350ff",
+        borderColor: "Green",
         borderRadius: 10,
-
+        borderWidth: 2,
+        flexDirection: "row",
+        alignItems:"center"
     },
 
     inputError: {
         backgroundColor: "#fed5d5ff",
         borderColor: "rgb(139, 0. 0, 1 )"
 
+    },
+    
+    eyeIcon: {
+        position: "absolute",
+        right: 12,
+        top: 42
     }
 })  

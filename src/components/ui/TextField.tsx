@@ -13,15 +13,16 @@ type Props = TextInputProps & {
 const TextField = ({label,errorText, icon , ...restInputProps} : Props) => {
 
     return (
-        <View>
+        <View style= {global.inputGroup}>
             <Text style={global.label}>{label}</Text>
-            <View>
+            <View style={[global.inputIcon, errorText ? global.inputError : null]}>
                 {!! icon && (
                     <View>
-                        <MaterialIcons name={icon} size={18} color="purple"/>
+                        <MaterialIcons name={icon} size={18} color="green"/>
                     </View>
                 )}  
                 <TextInput
+                style = {global.input}
                     keyboardAppearance="dark"
                     placeholderTextColor="#9ca3af"
                     {...restInputProps}
