@@ -1,5 +1,5 @@
-import { Dimensions, StyleSheet } from "react-native";
 const { width, height } = Dimensions.get("window");
+import { Dimensions, StyleSheet } from "react-native";
 export const global = StyleSheet.create({
     safeArea: {
         flex: 1,
@@ -74,5 +74,19 @@ export const global = StyleSheet.create({
         position: "absolute",
         right: 12,
         top: 42
+    },
+    primaryButton: {
+        backgroundColor: "#420350ff",
+        borderRadius: 10,
+        padding: width * 0.025,
+        marginTop: width * 0.02,
+        alignItems: "center"
+    },
+    primaryButtonDisabled: {
+        backgroundColor: "#9ca3af",
+        borderRadius: 10,
+    },
+    primaryButtonText: {
+        color: "#fff"
     }
 })  
