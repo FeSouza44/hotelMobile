@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet } from "react-native";
 export const global = StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "#ffffffff"
     },
     keyboardAvoiding: {
         flex: 1
@@ -23,11 +23,11 @@ export const global = StyleSheet.create({
     },
     subtitle: {
         fontSize: 17,
-        color: "purple",
+        color: "black",
         marginTop: height * 0.01
     },
     content: {
-        backgroundColor: "#ebe0faff",
+        backgroundColor: "#b9b9b9ff",
         borderRadius: 10,
         padding: width * 0.02,
         shadowColor: "#000",
@@ -39,14 +39,14 @@ export const global = StyleSheet.create({
     label: {
         fontSize: 14,
         fontWeight: "600",
-        color: "#420350ff",
+        color: "#000000ff",
         marginBottom: height * 0.01
     },
 
      input: {
         flex: 1,
         fontSize: 17,
-        color: "#000",
+        color: "#000000ff",
         paddingHorizontal: width * 0.02
     },
 
@@ -57,7 +57,7 @@ export const global = StyleSheet.create({
     inputIcon: {
         backgroundColor: "#fff",
         borderBottomWidth: 1,
-        borderColor: "Green",
+        borderColor: "#541205",
         borderRadius: 10,
         borderWidth: 2,
         flexDirection: "row",
@@ -65,7 +65,7 @@ export const global = StyleSheet.create({
     },
 
     inputError: {
-        backgroundColor: "#fed5d5ff",
+        backgroundColor: "#cc1313ff",
         borderColor: "rgb(139, 0. 0, 1 )"
 
     },
