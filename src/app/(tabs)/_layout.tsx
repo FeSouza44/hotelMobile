@@ -3,25 +3,38 @@
 -Reserves
 -Perfil
 "*/
+import { Tabs } from 'expo-router';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
-import { Tabs } from "expo-router";
-import { FontAwesome5, MaterialIcons } from "@expo/vector-icons";
+const TabLayout  = () => {
 
-const TabsLayout = () => {
-    return(
-            <Tabs screenOptions={{tabBarActiveTintColor: "#5C5B5B"}}>
+  return (
+    <Tabs screenOptions={{ tabBarActiveTintColor: '#871001', headerShown: false, tabBarStyle: {justifyContent: "center", alignItems:"center", height:60} } } >
+      <Tabs.Screen
+        name="explorer"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="search" size={24} color={color} />,
+        }}
+      />
+       <Tabs.Screen
+        name="reservation"
+        options={{
+          title: 'Reservation',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="search" size={24} color={color} />,
+        }}
+      />
 
-                <Tabs.Screen name="index" options={{ title: 'Explorer', tabBarIcon: ({}) => <FontAwesome5 name="search" size={24} color="black" />
-                }}
-                />
-
-                <Tabs.Screen 
-                    name="index" options={{title: 'Reservations', tabBarIcon: ({}) => <MaterialIcons name="card-travel" size={24} color="black" />
-                }}
-                />
-            </Tabs>
-    )
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: 'MyAccount',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="profile" size={24} color={color} />,
+        }}
+      />
+    </Tabs>
+  );
 }
 
-export default TabsLayout;
+export default TabLayout;
 
