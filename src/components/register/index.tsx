@@ -4,14 +4,37 @@ import PasswordField from "../ui/PasswordField";
 import TextField from "../ui/TextField";
 import { global } from "../ui/styles";
 import { useRouter } from "expo-router";
+import { useMemo, useState } from "react";
 
-// const router = useRouter = () => {
-    
-// }
+function isValidEmail(email:string){
+    return /^[^\s@&='"!]@[^\s@&='"!].[^\s@&='"!]$/.test(email);
+}
+
+const RenderRegister = () => {
+const router = useRouter()
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [passwordConfirm, setPasswordConfirm] = useState("");
+const [cpf, setCPF] = useState("");
+const [telefone, setTelefone] = useState("");
+const [loading, setLoading] = useState("");
+const [touched, setTouched] = useState<{email?:boolean; password?: boolean; passwordConfirm?:boolean, cpf?: boolean; telefone?: boolean}>({});
+
+const errors = useMemo(() => {
+    const error: Record<string, string> = {};
+    if(touched.email && !email) error.email = "E-mail obrigatório"
+    if(touched.password && !password) error.password = "Senha obrigatória"
+    if(touched.password && password && password.length < 6) error.password = "No mínimo 6 caracteres para a senha";
+    if (touched.email && email && !isValidEmail(email)) error.email = "Digite um e-mail válido";
+
+    return error; 
+}, [email, password, touched])
+
+const canSubmit = email && password && Object.keys(errors).length === 0
+
 
 const { width, height} = Dimensions.get('window');
-const RenderRegister = () => {
-    return (
+return (
         <AuthContainer
             title="Bem-vindo"
             subtitle="Faça seu cadastro para continuar!"
@@ -19,36 +42,38 @@ const RenderRegister = () => {
 
             {/* children */}    
             <TextField
+
                 label="Nome:"
                 placeholder="Digite Seu Nome:"
             />
 
             <TextField
                 label="CPF:"
-                icon="email"
-                placeholder="user@email.com"
-            />
+                placeholder="999.999.999-9"
+            />''
 
             <TextField
                 label="Telefone:"
-                icon="phone"
+                icon={{ lib: "MaterialIcons", name: "call" }}
                 placeholder="99 99999-9999"
                 autoComplete="tel"
             />
 
             <TextField
-            label="E-mail"
-            icon="email"
-            placeholder="user@email.com"
+                label="E-mail"
+                icon={{ lib: "MaterialIcons", name: "email" }}
+                placeholder="user@email.com"
             />  
 
             <PasswordField
                 label="Senha"
+                icon={{ lib: "MaterialIcons", name: "password" }}
                 placeholder="*********"
             />
 
             <PasswordField
                 label="Senha"
+                icon={{ lib: "MaterialIcons", name: "password" }}
                 placeholder="*********"
             />
 

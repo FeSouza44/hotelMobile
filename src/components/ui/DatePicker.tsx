@@ -1,59 +1,42 @@
 import { useState } from "react";
-import { TouchableOpacity, View, Text, Modal, Platform } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { picker } from "./picker";''
+import { Dimensions, View } from "react-native";
+import DatePicker, { getToday } from "react-native-modern-datepicker";
 
-const RenderDatePicker = () => {
-  const [open, setOpen] = useState(false);
-  const [date, setDate] = useState(new Date());
+type Props = {
+  onSelectDate: (date: string) => void;
+};
 
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(today.getDate() + 1);
-
-  const onChange = (_: any, selectedDate?: Date) => {
-    if (Platform.OS === "android") setOpen(false);
-    if (selectedDate) setDate(selectedDate);
-  };
+const DateSelector = ({ onSelectDate }: Props) => {
+  const { width, height } = Dimensions.get("window"); //Componente para dimensionar largura e altura (responsividade)
+  const today = getToday();
+  const [selectDate, setSelectedDate] = useState("");
 
   return (
     <View>
-      <TouchableOpacity onPress={() => setOpen(true)}>
-        <Text>Open</Text>
-      </TouchableOpacity>
-
-      {Platform.OS === "ios" && (
-        <Modal visible={open} transparent={true} animationType="slide">
-          <View style={picker.centerView}>
-            <View style={picker.modalView}>
-              <DateTimePicker
-                value={date}
-                minimumDate={tomorrow}
-                mode="date"
-                display="spinner"
-                locale="pt-BR"
-                onChange={onChange}
-              />
-
-              <TouchableOpacity onPress={() => setOpen(false)}>
-                <Text>Close</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
-      )}
-
-      {Platform.OS === "android" && open && (
-        <DateTimePicker
-          value={date}
-          minimumDate={tomorrow}
-          mode="date"
-          locale="pt-BR"
-          onChange={onChange}
-        />
-      )}
+      <DatePicker
+        mode="calendar"
+        options={{
+          backgroundColor: "#f0f0f0ff", //Fundo (background)
+          textHeaderColor: "#9e62acff", //Mês
+          textDefaultColor: "#420350ff", //Número (data)
+          selectedTextColor: "#fff", //Cor do número (data) quando selecionado
+          mainColor: "#9e62acff", //Setas laterais e seletor
+          textSecondaryColor: "#420350ff", //Dia da semana
+          borderColor: "#9e62acff", //Borda
+          textFontSize: 14, //Tamanho da fonte (dias da semana e número -> data)
+          textHeaderFontSize: 15, //Tamanho da fonte (mês)
+        }}
+        style={{ borderRadius: 15, width: width * 0.85, height: "auto" }}
+        isGregorian={true}
+        minimumDate={today}
+        selected={selectDate}
+        onSelectedChange={(date) => {
+          setSelectedDate(date);
+          onSelectDate(date);
+        }}
+      />
     </View>
   );
 };
 
-export default RenderDatePicker;
+export default DateSelector;

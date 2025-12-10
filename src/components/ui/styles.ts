@@ -43,6 +43,11 @@ export const global = StyleSheet.create({
         marginBottom: height * 0.01
     },
 
+    icon: {
+        color: "#4b0505",
+        fontSize: 20
+    },
+    
      input: {
         flex: 1,
         fontSize: 17,
@@ -68,6 +73,18 @@ export const global = StyleSheet.create({
         backgroundColor: "#cc1313ff",
         borderColor: "rgb(139, 0. 0, 1 )"
 
+    },
+
+    hotelIcon: {
+        fontSize: 42,
+        color: "#4b0505"
+    },
+
+    errorText: {
+        color: "red",
+        fontWeight: "600",
+        fontSize: 15,
+        marginTop: height * 0.01   
     },
     
     eyeIcon: {

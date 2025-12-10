@@ -5,12 +5,14 @@
 "*/
 import { Tabs } from 'expo-router';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const TabLayout  = () => {
 
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: '#871001', headerShown: false, tabBarStyle: {justifyContent: "center", alignItems:"center", height:60} } } >
-      <Tabs.Screen
+      <Tabs.Screen 
         name="explorer"
         options={{
           title: 'Home',
@@ -21,7 +23,7 @@ const TabLayout  = () => {
         name="reservation"
         options={{
           title: 'Reservation',
-          tabBarIcon: ({ color }) => <FontAwesome5 name="search" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="wallet-travel" size={24} color="black" />,
         }}
       />
 
@@ -29,7 +31,7 @@ const TabLayout  = () => {
         name="account"
         options={{
           title: 'MyAccount',
-          tabBarIcon: ({ color }) => <FontAwesome5 name="profile" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="manage-accounts" size={24} color="black" />
         }}
       />
     </Tabs>
