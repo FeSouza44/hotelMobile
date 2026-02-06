@@ -1,12 +1,12 @@
-import { FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5, FontAwesome6, MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Dimensions, Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import { global } from "./styles";
 
 type NameIcon =
   | { lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
   | { lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
-  | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap };
-
+  | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap }
+  | { lib: "MaterialCommunityIcons"; name: keyof typeof MaterialCommunityIcons.glyphMap };
 type Infos = { title?: string; text: string; price: number };
 
 type Props = {

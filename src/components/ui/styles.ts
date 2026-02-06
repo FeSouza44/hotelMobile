@@ -1,109 +1,287 @@
-const { width, height } = Dimensions.get("window");
 import { Dimensions, StyleSheet } from "react-native";
+
+const { width, height } = Dimensions.get("window");
+
+
 export const global = StyleSheet.create({
+
     safeArea: {
         flex: 1,
-        backgroundColor: "#ffffffff"
+        backgroundColor: "#ffffffff",
+        justifyContent: "center"
     },
-    keyboardAvoiding: {
-        flex: 1
+
+    keyboardAvoid: {
+        flex: 1,
     },
+
     container: {
+        flex: 1,
         paddingHorizontal: width * 0.07,
-        paddingVertical: height * 0.07
+        paddingTop: height * 0.05,
+        paddingBottom: height * 0.05
     },
+
     header: {
         alignItems: "center",
-        marginBottom: height * 0.03
+        marginBottom: height * 0.02
+    },
+      eyeIcon: {
+        position: "absolute",
+        right: 12,
+        top: 42
     },
     title: {
-        fontSize: 25,
-        fontWeight: "800",
-        /*Para atribuir cor: color:*/
+        fontSize: 24,
+        fontWeight: "700",
+        marginTop: height * 0.006,
     },
-    subtitle: {
-        fontSize: 17,
-        color: "black",
-        marginTop: height * 0.01
+
+    subTitle: {
+        fontSize: 18,
+        fontWeight: "500",
+        alignSelf: "center",
+        marginTop: height * 0.01,
+        marginBottom: height * 0.01,
     },
+
     content: {
-        backgroundColor: "#b9b9b9ff",
-        borderRadius: 10,
+        display: "flex",
+        backgroundColor: "#f3f3f3",
+        borderRadius: 20,
         padding: width * 0.02,
-        shadowColor: "#000",
-        shadowOpacity: 0.05,
-        shadowRadius: 10,
-        elevation: 2
+        shadowColor: "#000000ff",
+        elevation: 18,
     },
-    
+
+    hotelIcon: {
+        fontSize: 54,
+        color: "#4b0505"
+    },
+
+    image: {
+        width: 200,
+        height: 200,
+    },
+
+    inputGroup: {
+        marginBottom: height * 0.005,
+        marginLeft: height * 0.01,
+        marginRight: height * 0.01
+    },
+
     label: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: "600",
-        color: "#000000ff",
-        marginBottom: height * 0.01
+        color: "#141414ff",
+        marginBottom: height * 0.005,
+        justifyContent: "center"
+    },
+
+    inputIcon: {
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: "#fff",
+        paddingLeft: width * 0.02,
+        borderWidth: 2,
+        borderColor: "#4b0505",
+        borderRadius: 10
+    },
+
+    inputError: {
+        backgroundColor: "#ff9292ff",
+        borderColor: "red"
+    },
+
+    input: {
+        flex: 1,
+        fontSize: 17,
+        color: "#000",
+        fontWeight: "500",
+        paddingHorizontal: width * 0.02
+    },
+
+    errorText: {
+        color: "red",
+        fontSize: 12,
+        marginTop: height * 0.005
     },
 
     icon: {
         color: "#4b0505",
         fontSize: 20
     },
-    
-     input: {
-        flex: 1,
-        fontSize: 17,
-        color: "#000000ff",
-        paddingHorizontal: width * 0.02
-    },
 
-    inputGroup:{
-        marginBottom: height *0.01
-    },
-
-    inputIcon: {
-        backgroundColor: "#fff",
-        borderBottomWidth: 1,
-        borderColor: "#541205",
-        borderRadius: 10,
-        borderWidth: 2,
-        flexDirection: "row",
-        alignItems:"center"
-    },
-
-    inputError: {
-        backgroundColor: "#cc1313ff",
-        borderColor: "rgb(139, 0. 0, 1 )"
-
-    },
-
-    hotelIcon: {
-        fontSize: 42,
-        color: "#4b0505"
-    },
-
-    errorText: {
-        color: "red",
-        fontWeight: "600",
-        fontSize: 15,
-        marginTop: height * 0.01   
-    },
-    
-    eyeIcon: {
-        position: "absolute",
-        right: 12,
-        top: 42
-    },
     primaryButton: {
-        backgroundColor: "#420350ff",
+        backgroundColor: "#4b0505",
         borderRadius: 10,
         padding: width * 0.025,
-        marginTop: width * 0.02,
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: height * 0.03,
+        marginLeft: width * 0.02,
+        marginRight: width * 0.02,
+        marginBottom: height * 0.02
     },
+
+    secondaryButton: {
+        backgroundColor: "#4b0505",
+        borderRadius: 10,
+        padding: width * 0.025,
+        alignItems: "center",
+        marginTop: height * 0.03,
+        marginLeft: width * 0.02,
+        marginRight: width * 0.02,
+    },
+
     primaryButtonDisabled: {
         backgroundColor: "#9ca3af",
         borderRadius: 10,
     },
+
     primaryButtonText: {
-        color: "#fff"
-    }
-})  
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: 700
+    },
+    
+    defaultText: {
+        paddingLeft: width * 0.02,
+        paddingTop: width * 0.01,
+        fontSize: 14,
+        lineHeight: 15,
+        color: '#000',
+    },
+    
+    registerLinkText: {
+        fontSize: 14,
+        lineHeight: 22,
+        color: "#4b0505",
+        fontWeight: "bold"
+    },
+
+    passwordResetDeiv: {
+        alignItems: "center",
+        marginBottom: height * 0.02
+    },
+    
+    passwordReset: {
+        fontWeight: "bold",
+        color: "#4b0505",
+        fontSize: 14,
+    },
+
+    passwordResetAccount: {
+        fontWeight: "bold",
+        color: "#4b0505",
+        fontSize: 14,
+        marginTop: height * 0.02
+    },
+
+    text: {
+        fontSize: 14,
+        fontWeight: "500",
+        textAlign: "center"
+    },
+
+    divText: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginLeft: height * 0.01,
+        marginRight: height * 0.01
+    },
+
+    screenContainer: {
+        flex: 1,
+    },
+
+    divTurnLeft: {
+        position: 'absolute',
+        top: 50,
+        left: 15,
+        zIndex: 10
+    },
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        width: "90%",
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+
+    divDateSelector: {
+        alignItems: "center",
+        justifyContent: "center"
+    }, 
+
+    modalOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20
+    },
+
+    modalContent: {
+        width: '100%',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        borderRadius: 20,
+        padding: 25,
+        elevation: 5,
+    },
+
+    absoluteOverlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 9999,
+        padding: 20,
+    },
+
+    backgroundTap: {
+        position: 'absolute',
+        width: width,
+        height: height,
+    },
+    
+    modalCard: {
+        width: '100%',
+        backgroundColor: 'white', 
+        borderRadius: 20,
+        padding: 25,
+        elevation: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+    }, 
+
+    separator: {
+        height: 2,
+        backgroundColor: '#e0e0e0',
+        marginVertical: 25,
+        width: '100%',
+    },
+});

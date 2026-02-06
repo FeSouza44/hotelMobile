@@ -1,8 +1,4 @@
-/*Definir fluxo de navegação entre as telas disponiveis em "Tab Navigator:
--Home
--Reserves
--Perfil
-"*/
+
 import { Tabs } from 'expo-router';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { MaterialCommunityIcons } from '@expo/vector-icons';

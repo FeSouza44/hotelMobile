@@ -1,95 +1,84 @@
-import { TouchableOpacity, View, Text, Dimensions } from "react-native";
-import AuthContainer from "../ui/AuthContainer";
+import { Text, TouchableOpacity, View } from "react-native";
+import  AuthContainer  from "../ui/AuthContainer";
 import PasswordField from "../ui/PasswordField";
-import TextField from "../ui/TextField";
+import  TextField  from "../ui/TextField";
 import { global } from "../ui/styles";
 import { useRouter } from "expo-router";
-import { useMemo, useState } from "react";
-
-function isValidEmail(email:string){
-    return /^[^\s@&='"!]@[^\s@&='"!].[^\s@&='"!]$/.test(email);
-}
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useState } from 'react';
 
 const RenderRegister = () => {
-const router = useRouter()
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-const [passwordConfirm, setPasswordConfirm] = useState("");
-const [cpf, setCPF] = useState("");
-const [telefone, setTelefone] = useState("");
-const [loading, setLoading] = useState("");
-const [touched, setTouched] = useState<{email?:boolean; password?: boolean; passwordConfirm?:boolean, cpf?: boolean; telefone?: boolean}>({});
 
-const errors = useMemo(() => {
-    const error: Record<string, string> = {};
-    if(touched.email && !email) error.email = "E-mail obrigatório"
-    if(touched.password && !password) error.password = "Senha obrigatória"
-    if(touched.password && password && password.length < 6) error.password = "No mínimo 6 caracteres para a senha";
-    if (touched.email && email && !isValidEmail(email)) error.email = "Digite um e-mail válido";
+    const [cpf, setCpf] = useState("");
+    const router = useRouter();
+    const [telefone, setTelefone] = useState("");
 
-    return error; 
-}, [email, password, touched])
+    return (
 
-const canSubmit = email && password && Object.keys(errors).length === 0
+        <View style={global.screenContainer}> 
 
+            <View style={global.divTurnLeft}> 
+                <TouchableOpacity onPress={() => router.push("/(auth)")}> 
+                    <MaterialCommunityIcons name="arrow-left" size={25} color="#4b0505" />
+                </TouchableOpacity>
+            </View> 
 
-const { width, height} = Dimensions.get('window');
-return (
-        <AuthContainer
-            title="Bem-vindo"
-            subtitle="Faça seu cadastro para continuar!"
-            icon="hotel">
+            <AuthContainer
+                title="Grand Hotel Royal"
+                subtitle="Cadastrar"
+                icon="hotel">
 
-            {/* children */}    
-            <TextField
+                <TextField
+                    label="E-mail"
+                    icon={{lib: "MaterialCommunityIcons", name: "email"}}
+                    placeholder="email@email.com"
+                    keyboardType="email-address"
+                />
 
-                label="Nome:"
-                placeholder="Digite Seu Nome:"
-            />
+                <PasswordField
+                    label="Senha"
+                    placeholder="********"
+                />
 
-            <TextField
-                label="CPF:"
-                placeholder="999.999.999-9"
-            />''
+                <PasswordField
+                    label="Confirme sua senha"
+                    placeholder="********"
+                />
 
-            <TextField
-                label="Telefone:"
-                icon={{ lib: "MaterialIcons", name: "call" }}
-                placeholder="99 99999-9999"
-                autoComplete="tel"
-            />
+                <TextField 
+                    label="CPF" 
+                    icon={{lib: "MaterialCommunityIcons", name: "file-document"}} 
+                    placeholder="000.000.000-00" 
+                    keyboardType="numeric"
+                    isMasked={true}
+                    type={'cpf'}
+                    value={cpf}
+                    onChangeText={setCpf}
+                />
 
-            <TextField
-                label="E-mail"
-                icon={{ lib: "MaterialIcons", name: "email" }}
-                placeholder="user@email.com"
-            />  
+                <TextField 
+                    label="Telefone" 
+                    icon={{lib: "MaterialCommunityIcons", name: "phone"}} 
+                    placeholder="(99) 99999-9999" 
+                    keyboardType="numeric"
+                    isMasked={true}
+                    type={'cel-phone'}
+                    options={{
+                        maskType: 'BRL',
+                        withDDD: true,
+                        dddMask: '(99) '
+                    }}
+                    value={telefone}
+                    onChangeText={setTelefone}
+                />
 
-            <PasswordField
-                label="Senha"
-                icon={{ lib: "MaterialIcons", name: "password" }}
-                placeholder="*********"
-            />
+                <TouchableOpacity style={[global.primaryButton]}>
+                    <Text style={global.primaryButtonText}>Cadastrar-se</Text>
+                </TouchableOpacity>
 
-            <PasswordField
-                label="Senha"
-                icon={{ lib: "MaterialIcons", name: "password" }}
-                placeholder="*********"
-            />
-
-            <TouchableOpacity style={[global.primaryButton]}>
-            <Text style={global.primaryButtonText}>Cadastrar</Text>
-        </TouchableOpacity>
-        <View style={{alignItems: "center", marginTop: height * 0.03}}>
-            <View style={{backgroundColor: "#7c8390ff", width: width * 0.5, height: height * 0.001,
-                borderRadius: 10, marginTop: height * 0.03}}></View>
+            </AuthContainer>
         </View>
-
-
-
-
-        </AuthContainer>
     )
-};
+}
 
 export default RenderRegister;

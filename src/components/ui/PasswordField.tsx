@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { TouchableOpacity ,View } from "react-native";
-import TextField from "./TextField";
 import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { TouchableOpacity, View } from "react-native";
 import { global } from "./styles";
+import TextField from "./TextField";
 
 type Props = React.ComponentProps<typeof TextField>;
 
@@ -14,7 +14,7 @@ const PasswordField = (restInputProps: Props) => {
         <View>
             <TextField
             {...restInputProps}
-            icon={restInputProps.icon ?? "lock"}
+            icon={restInputProps.icon ?? ("lock" as any)}
             secureTextEntry={!show}
             autoCapitalize="none"
             autoCorrect={false}
