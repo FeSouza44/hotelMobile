@@ -1,16 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native';
+import RenderReservation from "@/src/components/reservation";
 
-export default function Tab() {
+const Reservation = () => {
   return (
-    <View style={styles.container}>
-    </View>
-  );
+    <RenderReservation/>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default Reservation;

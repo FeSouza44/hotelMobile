@@ -60,7 +60,7 @@ const RenderResetPassword = () => {
           <TouchableOpacity
             disabled={!canSubmit}
             onPress={handleSubmit}
-            style={{ opacity: canSubmit ? 1 : 0.5 }}
+            style={global.primaryButton}
           >
             <Text style={global.title}>Recuperar senha</Text>
           </TouchableOpacity>
