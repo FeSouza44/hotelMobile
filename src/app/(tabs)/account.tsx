@@ -1,4 +1,4 @@
-import RenderAccount from '@/src/components/account/index';
+import RenderAccount from '@/components/account/index';
  
 const Account = () => {
   return (

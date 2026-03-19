@@ -1,5 +1,5 @@
 
-import RenderExplorer from '@/src/components/explorer';
+import RenderExplorer from '@/components/explorer';
 
 const Explorer = () => {
   return (

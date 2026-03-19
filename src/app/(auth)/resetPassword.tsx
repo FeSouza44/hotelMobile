@@ -1,4 +1,4 @@
-import RenderResetPassword from "../../components/resetPassword/index";
+import RenderResetPassword from "@/components/resetPassword/index";
 
 const ResetPassword = () => {
     return (

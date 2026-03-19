@@ -26,7 +26,9 @@ const DateSelector = ({onSelectDate} : Props) => {
                 style={{borderRadius: 15, width: width * 0.62, height: height * 0.35}}
                 isGregorian={true}
                 minimumDate={startDate}
-                onSelectedChange={(date) => {onSelectDate(date);}}
+                onDateChange={(date) => {
+                    onSelectDate(date);
+                }}
             />
 
         </View>

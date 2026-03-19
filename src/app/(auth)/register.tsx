@@ -1,4 +1,4 @@
-import RenderRegister from "@/src/components/register";
+import RenderRegister from "@/components/register";
 /* Login */
 const Register = () => {
     return (

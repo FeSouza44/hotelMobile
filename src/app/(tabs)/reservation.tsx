@@ -1,4 +1,4 @@
-import RenderReservation from "@/src/components/reservation";
+import RenderReservation from "@/components/reservation";
 
 const Reservation = () => {
   return (

@@ -1,38 +1,60 @@
+/*Função: definir o fluxo de navegação entre as telas disponíveis em Tab Navigator:
+Explorar, Reservas, Perfil*/
+import { useAuth } from "@/context/AuthContext";
+import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Redirect, Tabs } from "expo-router";
+const TabLayout = () => {
+  const { token, isLoading } = useAuth();
 
-import { Tabs } from 'expo-router';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
+  if (isLoading) return null;
 
-const TabLayout  = () => {
+  if (!token) {
+    return <Redirect href="/(auth)" />;
+  }
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: '#871001', headerShown: false, tabBarStyle: {justifyContent: "center", alignItems:"center", height:60} } } >
-      <Tabs.Screen 
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#420350ff",
+        tabBarInactiveTintColor: "#7c7c7cff",
+        headerShown: false,
+        tabBarStyle: { backgroundColor: "#fef6ffff" },
+      }}
+    >
+      <Tabs.Screen
         name="explorer"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <FontAwesome5 name="search" size={24} color={color} />,
+          title: "Explorar",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={25} name="search" color={color} />
+          ),
         }}
       />
-       <Tabs.Screen
-        name="reservation"
+
+      <Tabs.Screen
+        name="reservations"
         options={{
-          title: 'Reservation',
-          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="wallet-travel" size={24} color="black" />,
+          title: "Reservar",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              size={25}
+              name="bag-suitcase"
+              color={color}
+            />
+          ),
         }}
       />
 
       <Tabs.Screen
         name="account"
         options={{
-          title: 'MyAccount',
-          tabBarIcon: ({ color }) => <MaterialIcons name="manage-accounts" size={24} color="black" />
+          title: "Minha conta",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons size={25} name="account" color={color} />
+          ),
         }}
       />
     </Tabs>
   );
-}
-
+};
 export default TabLayout;
-
